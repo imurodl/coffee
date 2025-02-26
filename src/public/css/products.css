@@ -16,6 +16,7 @@
 
 .products-container .nav-item a {
   color: #e3c08d;
+  margin-left: 40px;
 }
 
 .products-container .nav-item a.disabled {
@@ -23,12 +24,17 @@
 }
 
 .products-container .navigation-menu {
+  margin-top: 10px;
+  padding-top: 10px;
   position: absolute;
   z-index: 10000;
   top: 1%;
   color: #efefee;
   font-size: 40px;
-  font-family: monospace;
+  font-family: "Nunito", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .products-container .restaurant-menu-frame {

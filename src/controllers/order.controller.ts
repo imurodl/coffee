@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Response } from "express";
 import { ExtendedRequest } from "../libs/types/member";
 import { T } from "../libs/types/common";
 import Errors, { HttpCode } from "../libs/Errors";

@@ -5,7 +5,6 @@ import { Member } from "../libs/types/member";
 import {
   Order,
   OrderInquiry,
-  OrderItem,
   OrderItemInput,
   OrderUpdateInput,
 } from "../libs/types/order";
