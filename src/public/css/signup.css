@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-40deg, #ee8e52, #7d2b80cc, #23b7d5, #2361d5);
   animation: gradient 15s ease infinite;
   -webkit-animation: gradient 15s ease infinite;
   background-size: 200% 200%;
@@ -163,6 +163,24 @@
   font-size: 15px;
   line-height: 26px;
   color: #4f547b;
+}
+
+.signup-btn {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #33a0ff;
+  border-radius: 10px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  width: 100%;
+  height: 60px;
 }
 
 /* Background animation */

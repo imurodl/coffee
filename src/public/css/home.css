@@ -42,7 +42,8 @@
 }
 
 .home-container .nav-item a {
-  color: #ffc3fd;
+  color: #e3c08d;
+  margin-left: 40px;
 }
 
 .home-container .nav-item a.disabled {
