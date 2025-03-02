@@ -32,10 +32,57 @@ $(function () {
       const result = response.data;
       if (result.data) {
         $(".new-product-status").blur();
+        alert("Product status updated!");
       } else alert("Product update failed!");
     } catch (err) {
       console.log(err);
       alert("Product update failed!");
+    }
+  });
+
+  $(".new-product-left-count").on("change", async function (e) {
+    const id = e.target.id;
+    const productLeftCount = e.target.value; // Get updated value
+
+    try {
+      const response = await axios.post(`/admin/product/${id}`, {
+        productLeftCount: productLeftCount,
+      });
+      const result = response.data;
+
+      if (result.data) {
+        $(".new-product-left-count").blur(); // Remove focus after update
+        alert("Product left count updated!");
+      } else {
+        alert("Product left count update failed!");
+      }
+    } catch (err) {
+      console.log(err);
+      alert("Product count update failed!");
+    }
+  });
+
+  $(".new-product-price").on("change", async function (e) {
+    console.log("Event Target ID:", e.target.id);
+    const id = e.target.id;
+    const productPrice = e.target.value; // Get updated price
+    console.log("prdct prc:", productPrice);
+
+    try {
+      const response = await axios.post(`/admin/product/${id}`, {
+        productPrice: productPrice,
+      });
+
+      const result = response.data;
+      if (result.data) {
+        $(".new-product-price").blur(); // Remove focus after update
+        alert("Product price updated!");
+      } else {
+        alert("Product price update failed!");
+      }
+    } catch (err) {
+      console.log(err);
+      alert("Product price update failed!");
     }
   });
 });

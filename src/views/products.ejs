@@ -29,7 +29,7 @@
       <div class="board">
         <div class="dishes-table">
           <span class="new-dish-txt" style="margin-bottom: 30px">
-            RESTAURANT MENU
+            STORE MENU
           </span>
           <table class="table table-bordered table-hover">
             <thead class="thead-light">
@@ -52,8 +52,22 @@
                 <%= value.productCollection === 'DRINK' ? value.productVolume :
                 value.productSize %>
               </td>
-              <td><%= value.productPrice %></td>
-              <td><%= value.productLeftCount %></td>
+              <td>
+                <input type="number"
+                  class="form-control new-product-price"
+                  id="<%= value._id %>"
+                  value="<%= value.productPrice %>"
+                  min="0"
+                />
+              </td>
+              <td>
+                <input type="number"
+                  class="form-control new-product-left-count"
+                  id="<%= value._id %>"
+                  value="<%= value.productLeftCount %>"
+                  min="0"
+                />
+              </td>
               <td>
                 <select class="spec-select new-product-status" id="<%= value._id %>">
                   <option value="PAUSE" <%= value.productStatus === 'PAUSE' ? 'selected' : '' %> >PAUSE</option>
