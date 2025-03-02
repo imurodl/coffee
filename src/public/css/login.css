@@ -1,133 +1,180 @@
-/* ---- Reset ---- */
-body {
+/body {
   margin: 0;
-  background-color: black;
   overflow: hidden; /* Prevents scrolling */
 }
 
-/* ---- Particles.js Background ---- */
-#particles-js {
-  position: fixed; /* Covers the entire screen */
+.signup-container {
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1; /* Puts particles behind everything */
-}
-
-.login-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: auto;
+  background: #fafafa;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
 }
 
-.login-container a {
+.signup-container .signup-left {
+  width: 800px;
+  height: 930px;
+  background: url("https://s3-alpha-sig.figma.com/img/066a/8735/77147b1fd853f0906ab95316f615f6c4?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=BtbvBeSPWA1jEs7A0QE6w-0g21I0KciyKlYd4dj-XRUVPHFJW~~m4~BT1HiJS~5ew~uiVD98hqFuqL-nBqWbnbzob33ICp3hrNkE62BJ1XG68oLoLMOvLGrgRvID6OFpCDIjNcm3OVa8615B86QyFusMAinj~AmMukYP0iaC~CRFkeY3g23E0WAuXRYYCnj76a~qW~xGOWSR7zvNtr~2~na33Fgu78gjnVXlxsTSrKANLicm7Gm~BeU2ePPbM18I26mPbH54siJaL9iCh2El8AZkX1OYxRlCm~kG4qvTsGl547RpkggSMncmTt-YSdRx30IlFNfKGF~MNEREPKIuJQ__")
+    lightgray 0% 0% / 100px 100px repeat;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signup-left .line {
+  position: absolute;
+  left: -10px;
+  width: 183.372px;
+  height: 171.484px;
+  stroke-width: 1px;
+  stroke: #fff;
+}
+
+.signup-container .signup-left-text {
+  padding-top: 183px;
+}
+
+.signup-left .left-title {
+  color: #fff;
+  font-family: "Dancing Script";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 62.4px */
+}
+
+.signup-left .left-subtitle {
+  width: 444px;
+  color: #fff;
+  font-family: Ruda;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 20.8px */
+}
+
+.signup-left .left-img {
+  margin-top: 163px;
+}
+
+.signup-left .left-img img {
+  height: 388px;
+  width: 654px;
+}
+
+.signup-container a {
   text-decoration: none;
   color: black;
 }
 
-.login-container .login-frame {
-  position: relative;
-  width: 420px;
+.signup-container .signup-right {
+  margin-left: 40px;
+  width: auto;
   height: auto;
   display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  background: #ffffff;
-  padding: 25px;
+  flex-direction: row;
 }
 
-.login-container .login-frame .login-top {
-  position: relative;
-  width: 100%;
-  height: auto;
+.signup-container .signup-right .brand-logo {
+  margin-top: 70px;
+}
+
+.signup-container .signup-right .signup-form {
   display: flex;
+  width: 544px;
+  padding: 90px 96px 46px 96px;
   flex-direction: column;
+  justify-content: flex-end;
 }
 
-.login-container .login-top span {
-  font-family: "Poppins";
+.signup-right .signup-form .signup-title {
+  color: #3a3846;
+  /* Title/M/Semibold */
+  font-family: Halant;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 41.6px */
+}
+
+.signup-right .signup-form .signup-subtitle {
+  width: 351px;
+  color: #a8a8a8;
+  /* Text/M/Regular */
+  font-family: Ruda;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 20.8px */
+}
+
+.singup-input-frame {
+  margin-top: 16px;
+}
+
+.signup-input-container {
+  margin-top: 16px;
+  display: flex;
+  width: 351px;
+  height: auto;
+  padding-top: 4px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.signup-input-container .signup-label {
+  color: #3a3846;
+  /* Text/S/Bold */
+  font-family: Ruda;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
-  line-height: 34px;
+  line-height: 130%; /* 18.2px */
 }
 
-.login-container .login-top p {
-  margin-top: 15px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-}
-
-.login-container .login-top div {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-}
-
-.login-container .login-frame .login-input-frame {
-  position: relative;
-  width: 100%;
-  height: auto;
+.signup-input-container .signup-input {
   display: flex;
-  flex-direction: column;
-}
-
-.login-container .login-input-container {
-  position: relative;
-  margin-top: 15px;
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.login-container .login-input-container label {
-  margin-bottom: 0px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 18px;
-}
-
-.login-container .login-input-container input {
-  position: relative;
-  margin-top: 10px;
-  padding-left: 20px;
-  width: 100%;
-  height: 55px;
-  background: #f6f5f5;
-  border: 1px solid #dddddd;
+  width: 351px;
+  padding: 12px 16px;
+  align-items: center;
   border-radius: 8px;
+  border: 1px solid #c9c9c9;
 }
 
-.login-container .login-frame .login-btn {
-  position: relative;
-  margin-top: 25px;
-  width: 100%;
-  height: 70px;
+.signup-form .signup-btn {
+  margin-top: 24px;
   display: flex;
+  width: 350px;
+  padding: 12px 24px;
   justify-content: center;
   align-items: center;
-  background: #33a0ff;
-  border-radius: 10px;
-  font-family: "Nunito";
+  gap: 4px;
+  color: #fff;
+  border-radius: 8px;
+  background: #89937c;
+  font-family: Ruda;
+  font-size: 14px;
   font-style: normal;
-  font-weight: 800;
-  font-size: 24px;
-  line-height: 33px;
-  letter-spacing: -0.02em;
-  color: #ffffff;
+  font-weight: 700;
+  line-height: 130%; /* 18.2px */
+}
+
+.signup-form .login-link {
+  margin-top: 31px;
+  width: 344px;
+  color: #7a7980;
+  font-family: Ruda;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 13px */
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.signup-form .login-link a {
+  color: #1d1c25;
+  font-weight: 700;
 }

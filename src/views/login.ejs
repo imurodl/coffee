@@ -3,49 +3,91 @@
 <link rel="stylesheet" type="text/css" href="/css/login.css" />
 
 <body>
-  <!-- particle js background -->
-  <div id="particles-js"></div>
-
-  <!-- login form -->
-  <form class="login-container" action="/admin/login" METHOD="POST">
-    <div class="login-frame">
-      <div class="login-top">
-        <span>Enter</span>
-        <div>Go back <a href="/admin" style="color: #6440fb">Home</a></div>
-        <p>
-          Not registered yet?
-          <a href="/admin/signup" style="color: #6440fb">Signup</a>
-        </p>
-      </div>
-      <div class="login-input-frame">
-        <div class="login-input-container">
-          <label>Restaurant *</label>
-          <input
-            type="text"
-            name="memberNick"
-            class="member-nick"
-            placeholder="Username"
-            value=""
-            required
-          />
-        </div>
-        <div class="login-input-container">
-          <label>Password *</label>
-          <input
-            type="password"
-            name="memberPassword"
-            class="member-password"
-            placeholder="Password"
-            value=""
-            required
-          />
+  <div class="signup-container">
+    <div class="signup-left">
+      <span class="line"><img src="/img/signup-line.svg" alt="" /></span>
+      <div class="signup-left-text">
+        <div class="left-title">Check our products</div>
+        <div class="left-subtitle">
+          All our products are prepared with love step by step. The best choice
+          of coffee beans and totally natural.
         </div>
       </div>
-      <button class="login-btn btn" name="login" type="submit">Login</button>
+      <div class="left-img">
+        <img src="/img/login-img.png" alt="" />
+      </div>
     </div>
-  </form>
+    <div class="signup-right">
+      <form action="/admin/signup" method="POST" enctype="multipart/form-data">
+        <div class="brand-logo">
+          <img src="/img/coffeebuy-logo.svg" alt="brand-logo" />
+        </div>
 
-  <script type="text/javascript" src="/js/particle.js"></script>
+        <div class="signup-form">
+          <div class="signup-title">Register</div>
+          <div class="signup-subtitle">
+            Please enter your informations in the fields below
+          </div>
+          <div class="singup-input-frame">
+            <div class="signup-input-container">
+              <label class="singup-label">Name</label>
+              <input
+                type="text"
+                name="memberNick"
+                class="signup-input"
+                placeholder="Enter your username"
+                value=""
+                required
+              />
+            </div>
+            <div class="signup-input-container">
+              <label class="singup-label">Phone</label>
+              <input
+                type="text"
+                name="memberPhone"
+                class="signup-input"
+                placeholder="Enter your phone"
+                value=""
+                required
+              />
+            </div>
+            <div class="signup-input-container">
+              <label class="singup-label">Password</label>
+              <input
+                type="text"
+                name="memberPassword"
+                class="signup-input"
+                placeholder="Enter your password"
+                value=""
+                required
+              />
+            </div>
+            <div class="signup-input-container">
+              <label class="singup-label">Confirm password</label>
+              <input
+                type="text"
+                name="confirmPassword"
+                class="signup-input"
+                placeholder="Confirm your password"
+                value=""
+                required
+              />
+            </div>
+          </div>
+
+          <input name="memberType" value="RESTAURANT" hidden />
+
+          <button class="signup-btn btn" name="signup" type="submit">
+            Signup
+          </button>
+          <div class="login-link">
+            <span>Do you already have account? </span
+            ><a href="/admin/login">Login</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
 
 <%- include('includes/footer') %>
