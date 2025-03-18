@@ -67,8 +67,8 @@
               <td><%= index + 1 %></td>
               <td><%= value.memberNick %></td>
               <td><%= value.memberPhone %></td>
-              <td><%= new Date(value.createdAt).toLocaleString() %></td>
               <td><%= value.memberPoints %></td>
+              <td><%= new Date(value.createdAt).toLocaleString() %></td>
               <td style="width: 13%">
                 <select class="spec-select member-status" id="<%= value._id %>">
                   <option value="ACTIVE" <%= value.memberStatus === 'ACTIVE' ? 'selected' : '' %> >ACTIVE</option>
