@@ -1,82 +1,137 @@
 .home-container {
   position: relative;
   width: auto;
-  height: auto;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  height: 100vh;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  background: #fdfdfd;
 }
 
 .home-container .navigation-menu {
-  margin-top: 10px;
-  padding-top: 18px;
-  position: relative;
-  z-index: 10000;
-  color: #efefee;
-  font-size: 40px;
-  font-family: "Nunito", serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
+  margin-top: 30px;
+  display: flex;
+  width: 1193.6px;
+  justify-content: space-between;
+  align-items: center;
+  align-items: center;
+}
+
+.home-container .nav {
+  width: 700px;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .home-container a {
   text-decoration: none;
-  color: #000000;
+  color: #282828;
 }
 
-.home-container .nav-item a {
-  color: #e3c08d;
-  margin-left: 40px;
+.home-container .nav .nav-item {
+  color: #282828;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 20.8px */
 }
 
-.home-container .nav-item a.disabled {
-  color: #898071;
+.home-container .nav .navbar-button {
+  display: flex;
+  width: 174px;
+  padding: 13px 48px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background: #3c6bff;
+  color: #eee;
 }
 
-/* galaxy styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.home-container .main-content {
+  margin-top: 150px;
+  width: 1194px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-html,
-body {
-  overflow: hidden;
+.home-container .main-content .main-img {
+  width: 683px;
+  height: 527px;
+  background: url("https://s3-alpha-sig.figma.com/img/bf96/b6dd/cf3ecaac43ee0cef13f2f845107fc517?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=faCsYecUrLo4G0soJUuL01KPaqiK5uPeGR7a3y-utnu3tk7uOnyhgnuhQyhuQSgOHwKkati1q0lruq~Ea8zPtRCkSLmxZNSnSBs6qDaQIW8~zWA5hgZwWhG1T5TxOaiS1jGElNFZA5wz0YGqH86nCJffVb6-AVNh6PiqQPqy1daA989J9RqSmHHIZkvt4tcd8mQWL4SaIvR2a2Xzm9zh3sYD~kMnAuWyeC~LkCbj~TvC62ml0d~RmlTgoGpWnqX5CNyzedQRFTdFPfmnfKhaaGOY~Uv5GeVU3y6JN2617oUGLJgsOQZCccSkFxe3jh2uCNDXbwm~uua4wZAC8OXDcA__")
+    #fdfdfd 50% / cover no-repeat;
 }
 
-.experience {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
+.home-container .main-content .main-text {
+  width: 483px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.credits {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  color: #ffffff;
-  text-align: right;
-  font-family: "Roboto", sans-serif;
+.home-container .main-content .main-text p {
+  margin-bottom: -3px;
+  color: #0039dd;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%; /* 15.6px */
 }
 
-.credits a {
-  color: inherit;
+.main-content .main-text .content-title {
+  color: #282828;
+  font-family: Montserrat;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 52px */
+}
+
+.main-content .main-text .content-subtitle {
+  margin-top: 18px;
+  color: #282828;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+
+.main-content .main-text .content-button {
+  margin-top: 25px;
+  display: flex;
+  width: 174px;
+  padding: 13px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 25px;
+  background: #f90;
+}
+
+.main-content .main-text .content-button a {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.main-content .main-text .content-button span {
+  color: #f8f8f8;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.main-content .main-text .content-button img {
+  width: 5px;
+  height: 8px;
 }
