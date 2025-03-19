@@ -47,7 +47,7 @@
   align-items: center;
   flex-shrink: 0;
   border-radius: 25px;
-  background: #3c6bff;
+  background: #89937c;
   color: #eee;
 }
 
@@ -76,7 +76,7 @@
 
 .home-container .main-content .main-text p {
   margin-bottom: -3px;
-  color: #0039dd;
+  color: #4e5b3e;
   font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
@@ -112,7 +112,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 25px;
-  background: #f90;
+  background: #4e5b3e;
 }
 
 .main-content .main-text .content-button a {

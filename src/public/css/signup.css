@@ -1,30 +1,65 @@
 /* ---- Reset ---- */
 body {
   margin: 0;
-  background-color: rgb(0, 0, 0);
   overflow: hidden; /* Prevents scrolling */
 }
 
-/* ---- Particles.js Background ---- */
-#particles-js {
-  position: fixed; /* Covers the entire screen */
+.signup-container {
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1; /* Puts particles behind everything */
+  height: auto;
+  background: #fafafa;
+  display: flex;
 }
 
-.signup-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.signup-container .signup-left {
+  width: 800px;
+  height: 930px;
+  background: url("https://s3-alpha-sig.figma.com/img/066a/8735/77147b1fd853f0906ab95316f615f6c4?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=BtbvBeSPWA1jEs7A0QE6w-0g21I0KciyKlYd4dj-XRUVPHFJW~~m4~BT1HiJS~5ew~uiVD98hqFuqL-nBqWbnbzob33ICp3hrNkE62BJ1XG68oLoLMOvLGrgRvID6OFpCDIjNcm3OVa8615B86QyFusMAinj~AmMukYP0iaC~CRFkeY3g23E0WAuXRYYCnj76a~qW~xGOWSR7zvNtr~2~na33Fgu78gjnVXlxsTSrKANLicm7Gm~BeU2ePPbM18I26mPbH54siJaL9iCh2El8AZkX1OYxRlCm~kG4qvTsGl547RpkggSMncmTt-YSdRx30IlFNfKGF~MNEREPKIuJQ__")
+    lightgray 0% 0% / 100px 100px repeat;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  z-index: 1;
+  flex-direction: column;
+}
+
+.signup-left .line {
+  position: absolute;
+  left: -10px;
+  width: 183.372px;
+  height: 171.484px;
+  stroke-width: 1px;
+  stroke: #fff;
+}
+
+.signup-container .signup-left-text {
+  padding-top: 183px;
+}
+
+.signup-left .left-title {
+  color: #fff;
+  font-family: "Dancing Script";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 62.4px */
+}
+
+.signup-left .left-subtitle {
+  width: 444px;
+  color: #fff;
+  font-family: Ruda;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 20.8px */
+}
+
+.signup-left .left-img {
+  margin-top: 163px;
+}
+
+.signup-left .left-img img {
+  height: 388px;
+  width: 654px;
 }
 
 .signup-container a {
@@ -32,73 +67,136 @@ body {
   color: black;
 }
 
-.signup-container .signup-frame {
-  position: relative;
-  width: 420px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  background: #ffffff;
-  padding: 25px;
-}
-
-.signup-container .signup-frame .sign-input-frame {
-  position: relative;
-  width: 100%;
+.signup-container .signup-right {
+  margin-left: 40px;
+  width: auto;
   height: auto;
   display: flex;
   flex-direction: row;
 }
 
-.signup-container .sign-input-frame .sign-up-frame {
-  position: relative;
-  margin-top: 15px;
-  width: 49%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
+.signup-container .signup-right .brand-logo {
+  margin-top: 70px;
 }
 
-.signup-container .sign-up-frame label {
-  margin-bottom: 0px;
-  font-family: "Poppins";
+.signup-container .signup-right .signup-form {
+  display: flex;
+  width: 544px;
+  padding: 90px 96px 46px 96px;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.signup-right .signup-form .signup-title {
+  color: #3a3846;
+  /* Title/M/Semibold */
+  font-family: Halant;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 41.6px */
+}
+
+.signup-right .signup-form .signup-subtitle {
+  width: 351px;
+  color: #a8a8a8;
+  /* Text/M/Regular */
+  font-family: Ruda;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 18px;
+  line-height: 130%; /* 20.8px */
 }
 
-.signup-container .sign-up-frame input {
-  position: relative;
-  margin-top: 10px;
-  padding-left: 20px;
-  width: 100%;
-  height: 55px;
-  background: #f6f5f5;
-  border: 1px solid #dddddd;
-  border-radius: 8px;
+.singup-input-frame {
+  margin-top: 16px;
 }
 
-.signup-container .media-frame {
-  position: relative;
-  margin-top: 15px;
-  width: 100%;
-  height: 250px;
+.signup-input-container {
+  margin-top: 16px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  width: 351px;
+  height: auto;
+  padding-top: 4px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 4px;
 }
 
-.signup-container .media-frame .upload-img-frame {
+.signup-input-container .signup-label {
+  color: #3a3846;
+  /* Text/S/Bold */
+  font-family: Ruda;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 18.2px */
+}
+
+.signup-input-container .signup-input {
+  display: flex;
+  width: 351px;
+  padding: 12px 16px;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #c9c9c9;
+}
+
+.signup-form .signup-btn {
+  margin-top: 24px;
+  display: flex;
+  width: 350px;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+  border-radius: 8px;
+  background: var(--green-500, #89937c);
+  /* Text/S/Bold */
+  font-family: Ruda;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 18.2px */
+}
+
+.signup-form .login-link {
+  margin-top: 31px;
+  width: 344px;
+  color: #7a7980;
+  font-family: Ruda;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 13px */
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.signup-form .login-link a {
+  color: #1d1c25;
+  font-weight: 700;
+}
+/* 
+.signup-right .media-frame {
+  width: 300px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-frame .upload-img-frame {
   position: relative;
   width: 275px;
-  height: 93%;
+  height: 275px;
   display: flex;
   border-radius: 15px;
 }
 
-.signup-container .upload-img-frame .delete-img {
+.upload-img-frame .delete-img {
   position: absolute;
   width: 37px;
   height: 37px;
@@ -112,7 +210,7 @@ body {
   border-radius: 8px;
 }
 
-.signup-container .media-frame .upload-container {
+.media-frame .upload-container {
   position: relative;
   margin-left: 30px;
   width: 75%;
@@ -121,7 +219,7 @@ body {
   flex-direction: column;
 }
 
-.signup-container .media-text {
+.media-text {
   font-family: "GT Walsheim Pro";
   font-style: normal;
   font-weight: 500;
@@ -130,7 +228,7 @@ body {
   color: #140342;
 }
 
-.signup-container .file-box input[type="file"] {
+.file-box input[type="file"] {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -139,86 +237,4 @@ body {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-}
-
-.signup-container .file-box label {
-  margin-bottom: 0px;
-  width: 138px;
-  height: 55px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #6a7a99;
-  border-radius: 0px 8px 8px 0px;
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #ffffff;
-}
-
-.signup-container .file-box .upload-name {
-  position: relative;
-  padding: 20px;
-  width: 85%;
-  height: 55px;
-  display: flex;
-  background: #ffffff;
-  border: 1px solid #dddddd;
-  border-radius: 8px 0px 0px 8px;
-}
-
-.signup-container .thumbnail-desc {
-  margin-top: 25px;
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
-}
-
-.signup-btn {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #33a0ff;
-  border-radius: 10px;
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 24px;
-  line-height: 33px;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  width: 100%;
-  height: 60px;
-}
-
-/* Background animation */
-@-webkit-keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+} */

@@ -4,114 +4,121 @@
 
 <body>
   <div class="signup-container">
-    <form
-      onsubmit="return validateSignupForm()"
-      action="/admin/signup"
-      method="POST"
-      enctype="multipart/form-data"
-    >
-      <div class="signup-frame" style="width: 650px">
-        <div class="signup-top">
-          <span style="font-size: 30px">Get Started Now</span>
-          <div>Go back <a href="/admin" style="color: #6440fb">Home</a></div>
+    <div class="signup-left">
+      <span class="line"><img src="/img/signup-line.svg" alt="" /></span>
+      <div class="signup-left-text">
+        <div class="left-title">Check our products</div>
+        <div class="left-subtitle">
+          All our products are prepared with love step by step. The best choice
+          of coffee beans and totally natural.
+        </div>
+      </div>
+      <div class="left-img">
+        <img src="/img/login-img.png" alt="" />
+      </div>
+    </div>
+    <div class="signup-right">
+      <form action="/admin/signup" method="POST" enctype="multipart/form-data">
+        <div class="brand-logo">
+          <img src="/img/coffeebuy-logo.svg" alt="brand-logo" />
         </div>
 
-        <div class="sign-input-frame" style="justify-content: space-between">
-          <div class="sign-up-frame">
-            <label>Restaurant *</label>
-            <input
-              type="text"
-              name="memberNick"
-              class="member-nick"
-              placeholder="Username"
-              value=""
-            />
+        <div class="signup-form">
+          <div class="signup-title">Register</div>
+          <div class="signup-subtitle">
+            Please enter your informations in the fields below
           </div>
-          <div class="sign-up-frame">
-            <label>Phone *</label>
-            <input
-              type="text"
-              name="memberPhone"
-              class="member-phone"
-              placeholder="Phone"
-              value=""
-            />
-          </div>
-        </div>
-        <div class="sign-input-frame" style="justify-content: space-between">
-          <div class="sign-up-frame">
-            <label>Password *</label>
-            <input
-              type="password"
-              name="memberPassword"
-              class="member-password"
-              placeholder="Password"
-              value=""
-            />
-          </div>
-          <div class="sign-up-frame">
-            <label>Repeat password *</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              class="confirm-password"
-              placeholder="Repeat password"
-              value=""
-            />
-          </div>
-        </div>
-
-        <div class="signup-input-frame">
-          <div class="media-frame">
-            <img class="upload-img-frame" src="/img/default.jpeg" />
-            <div class="upload-container">
-              <span class="media-text">Product image</span>
-              <div
-                class="file-box bs3-primary preview-image"
-                style="margin-top: 25px; display: flex"
-              >
-                <input
-                  class="upload-name"
-                  value="Choose image"
-                  disabled="disabled"
-                />
-                <label for="input-file" class="file-input-label"
-                  >Upload Image</label
-                >
-                <input
-                  type="file"
-                  id="input-file"
-                  class="upload-hidden form-control-file member-image"
-                  name="memberImage"
-                />
-              </div>
-              <p class="thumbnail-desc">
-                Please upload restaurant image.<br />
-                Attention only:.jpg, .jpeg, or .png. <br />
-                formats allowed!
-              </p>
+          <div class="singup-input-frame">
+            <div class="signup-input-container">
+              <label class="singup-label">Name</label>
+              <input
+                type="text"
+                name="memberNick"
+                class="signup-input"
+                placeholder="Enter your username"
+                value=""
+                required
+              />
+            </div>
+            <div class="signup-input-container">
+              <label class="singup-label">Phone</label>
+              <input
+                type="text"
+                name="memberPhone"
+                class="signup-input"
+                placeholder="Enter your phone"
+                value=""
+                required
+              />
+            </div>
+            <div class="signup-input-container">
+              <label class="singup-label">Password</label>
+              <input
+                type="text"
+                name="memberPassword"
+                class="signup-input"
+                placeholder="Enter your password"
+                value=""
+                required
+              />
+            </div>
+            <div class="signup-input-container">
+              <label class="singup-label">Confirm password</label>
+              <input
+                type="text"
+                name="confirmPassword"
+                class="signup-input"
+                placeholder="Confirm your password"
+                value=""
+                required
+              />
             </div>
           </div>
+
+          <input name="memberType" value="RESTAURANT" hidden />
+
+          <button class="signup-btn btn" name="signup" type="submit">
+            Signup
+          </button>
+          <div class="login-link">
+            <span>Do you already have account? </span
+            ><a href="/admin/login">Login</a>
+          </div>
         </div>
-
-        <input name="memberType" value="RESTAURANT" hidden />
-
-        <button class="signup-btn btn" name="signup" type="submit">
-          Signup
-        </button>
-        <br />
-
-        <p>
-          Already have an account?
-          <a href="/admin/login" style="color: #6440fb">Login</a>
-        </p>
-      </div>
-    </form>
+      </form>
+      <!-- <div class="media-frame">
+        <img class="upload-img-frame" src="/img/default.jpeg" />
+        <div class="upload-container">
+          <span class="media-text">Product image</span>
+          <div
+            class="file-box bs3-primary preview-image"
+            style="margin-top: 25px; display: flex"
+          >
+            <input
+              class="upload-name"
+              value="Choose image"
+              disabled="disabled"
+            />
+            <label for="input-file" class="file-input-label"
+              >Upload Image</label
+            >
+            <input
+              type="file"
+              id="input-file"
+              class="upload-hidden form-control-file member-image"
+              name="memberImage"
+            />
+          </div>
+          <p class="thumbnail-desc">
+            Please upload restaurant image.<br />
+            Attention only:.jpg, .jpeg, or .png. <br />
+            formats allowed!
+          </p>
+        </div>
+      </div> -->
+    </div>
   </div>
 
-  <div id="particles-js"></div>
-
-  <script type="text/javascript" src="/js/particle.js"></script>
   <script type="text/javascript" src="/js/signup.js"></script>
 </body>
 
