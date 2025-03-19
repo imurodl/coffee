@@ -3,10 +3,10 @@
 <link rel="stylesheet" type="text/css" href="/css/login.css" />
 
 <body>
-  <div class="signup-container">
-    <div class="signup-left">
+  <div class="login-container">
+    <div class="login-left">
       <span class="line"><img src="/img/signup-line.svg" alt="" /></span>
-      <div class="signup-left-text">
+      <div class="login-left-text">
         <div class="left-title">Check our products</div>
         <div class="left-subtitle">
           All our products are prepared with love step by step. The best choice
@@ -17,77 +17,56 @@
         <img src="/img/login-img.png" alt="" />
       </div>
     </div>
-    <div class="signup-right">
-      <form action="/admin/signup" method="POST" enctype="multipart/form-data">
+    <div class="login-right">
+      <form action="/admin/login" METHOD="POST">
         <div class="brand-logo">
           <img src="/img/coffeebuy-logo.svg" alt="brand-logo" />
         </div>
 
-        <div class="signup-form">
-          <div class="signup-title">Register</div>
-          <div class="signup-subtitle">
-            Please enter your informations in the fields below
+        <div class="login-form">
+          <div class="login-title">Welcome back</div>
+          <div class="login-subtitle">
+            Please enter your informations to continue
           </div>
           <div class="singup-input-frame">
-            <div class="signup-input-container">
+            <div class="login-input-container">
               <label class="singup-label">Name</label>
               <input
                 type="text"
                 name="memberNick"
-                class="signup-input"
+                class="login-input"
                 placeholder="Enter your username"
                 value=""
                 required
               />
             </div>
-            <div class="signup-input-container">
-              <label class="singup-label">Phone</label>
-              <input
-                type="text"
-                name="memberPhone"
-                class="signup-input"
-                placeholder="Enter your phone"
-                value=""
-                required
-              />
-            </div>
-            <div class="signup-input-container">
+            <div class="login-input-container">
               <label class="singup-label">Password</label>
               <input
-                type="text"
+                type="password"
                 name="memberPassword"
-                class="signup-input"
+                class="login-input"
                 placeholder="Enter your password"
                 value=""
                 required
               />
             </div>
-            <div class="signup-input-container">
-              <label class="singup-label">Confirm password</label>
-              <input
-                type="text"
-                name="confirmPassword"
-                class="signup-input"
-                placeholder="Confirm your password"
-                value=""
-                required
-              />
-            </div>
           </div>
 
-          <input name="memberType" value="RESTAURANT" hidden />
+          <input name="memberType" value="ADMIN" hidden />
 
-          <button class="signup-btn btn" name="signup" type="submit">
-            Signup
+          <button class="login-btn btn" name="login" type="submit">
+            login
           </button>
           <div class="login-link">
-            <span>Do you already have account? </span
-            ><a href="/admin/login">Login</a>
+            <span>New here? </span><a href="/admin/signup">Create an account</a>
           </div>
         </div>
       </form>
     </div>
   </div>
+
+  <script type="text/javascript" src="/js/login.js"></script>
 </body>
 
 <%- include('includes/footer') %>

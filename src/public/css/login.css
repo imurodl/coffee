@@ -1,16 +1,16 @@
-/body {
+body {
   margin: 0;
   overflow: hidden; /* Prevents scrolling */
 }
 
-.signup-container {
+.login-container {
   width: 100%;
   height: auto;
   background: #fafafa;
   display: flex;
 }
 
-.signup-container .signup-left {
+.login-container .login-left {
   width: 800px;
   height: 930px;
   background: url("https://s3-alpha-sig.figma.com/img/066a/8735/77147b1fd853f0906ab95316f615f6c4?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=BtbvBeSPWA1jEs7A0QE6w-0g21I0KciyKlYd4dj-XRUVPHFJW~~m4~BT1HiJS~5ew~uiVD98hqFuqL-nBqWbnbzob33ICp3hrNkE62BJ1XG68oLoLMOvLGrgRvID6OFpCDIjNcm3OVa8615B86QyFusMAinj~AmMukYP0iaC~CRFkeY3g23E0WAuXRYYCnj76a~qW~xGOWSR7zvNtr~2~na33Fgu78gjnVXlxsTSrKANLicm7Gm~BeU2ePPbM18I26mPbH54siJaL9iCh2El8AZkX1OYxRlCm~kG4qvTsGl547RpkggSMncmTt-YSdRx30IlFNfKGF~MNEREPKIuJQ__")
@@ -20,7 +20,7 @@
   flex-direction: column;
 }
 
-.signup-left .line {
+.login-left .line {
   position: absolute;
   left: -10px;
   width: 183.372px;
@@ -29,11 +29,11 @@
   stroke: #fff;
 }
 
-.signup-container .signup-left-text {
+.login-container .login-left-text {
   padding-top: 183px;
 }
 
-.signup-left .left-title {
+.login-left .left-title {
   color: #fff;
   font-family: "Dancing Script";
   font-size: 48px;
@@ -42,7 +42,7 @@
   line-height: 130%; /* 62.4px */
 }
 
-.signup-left .left-subtitle {
+.login-left .left-subtitle {
   width: 444px;
   color: #fff;
   font-family: Ruda;
@@ -52,21 +52,21 @@
   line-height: 130%; /* 20.8px */
 }
 
-.signup-left .left-img {
+.login-left .left-img {
   margin-top: 163px;
 }
 
-.signup-left .left-img img {
+.login-left .left-img img {
   height: 388px;
   width: 654px;
 }
 
-.signup-container a {
+.login-container a {
   text-decoration: none;
   color: black;
 }
 
-.signup-container .signup-right {
+.login-container .login-right {
   margin-left: 40px;
   width: auto;
   height: auto;
@@ -74,11 +74,11 @@
   flex-direction: row;
 }
 
-.signup-container .signup-right .brand-logo {
+.login-container .login-right .brand-logo {
   margin-top: 70px;
 }
 
-.signup-container .signup-right .signup-form {
+.login-container .login-right .login-form {
   display: flex;
   width: 544px;
   padding: 90px 96px 46px 96px;
@@ -86,7 +86,7 @@
   justify-content: flex-end;
 }
 
-.signup-right .signup-form .signup-title {
+.login-right .login-form .login-title {
   color: #3a3846;
   /* Title/M/Semibold */
   font-family: Halant;
@@ -96,7 +96,7 @@
   line-height: 130%; /* 41.6px */
 }
 
-.signup-right .signup-form .signup-subtitle {
+.login-right .login-form .login-subtitle {
   width: 351px;
   color: #a8a8a8;
   /* Text/M/Regular */
@@ -111,7 +111,7 @@
   margin-top: 16px;
 }
 
-.signup-input-container {
+.login-input-container {
   margin-top: 16px;
   display: flex;
   width: 351px;
@@ -123,7 +123,7 @@
   gap: 4px;
 }
 
-.signup-input-container .signup-label {
+.login-input-container .login-label {
   color: #3a3846;
   /* Text/S/Bold */
   font-family: Ruda;
@@ -133,7 +133,7 @@
   line-height: 130%; /* 18.2px */
 }
 
-.signup-input-container .signup-input {
+.login-input-container .login-input {
   display: flex;
   width: 351px;
   padding: 12px 16px;
@@ -142,7 +142,7 @@
   border: 1px solid #c9c9c9;
 }
 
-.signup-form .signup-btn {
+.login-form .login-btn {
   margin-top: 24px;
   display: flex;
   width: 350px;
@@ -160,7 +160,7 @@
   line-height: 130%; /* 18.2px */
 }
 
-.signup-form .login-link {
+.login-form .login-link {
   margin-top: 31px;
   width: 344px;
   color: #7a7980;
@@ -174,7 +174,7 @@
   gap: 5px;
 }
 
-.signup-form .login-link a {
+.login-form .login-link a {
   color: #1d1c25;
   font-weight: 700;
 }

@@ -1,5 +1,18 @@
 console.log("Signup frontend javascript file");
 
+$(function () {
+  $("#confirmPassword").on("keyup", function () {
+    var password = $("#password").val();
+    var confirmPassword = $("#confirmPassword").val();
+    if (password != confirmPassword)
+      $("#CheckPasswordMatch")
+        .html("Password does not match !")
+        .css("color", "red");
+    else
+      $("#CheckPasswordMatch").html("Password match !").css("color", "green");
+  });
+});
+
 /*
 $(function () {
   const fileTarget = $(".file-box .upload-hidden");
