@@ -179,10 +179,6 @@
   min-width: 160px;
 }
 
-.dishes-table .table tbody td input {
-  min-width: 100px;
-}
-
 .products-container .board .dish-container {
   position: relative;
   margin-top: 20px;
