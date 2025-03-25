@@ -6,9 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url(../img/moon-back.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #e7e7e3;
 }
 
 .products-container a {
@@ -16,27 +14,52 @@
   color: #000000;
 }
 
-.products-container .nav-item a {
-  color: #e3c08d;
-  margin-left: 40px;
-}
-
-.products-container .nav-item a.disabled {
-  color: #898071;
+.products-container .navbar {
+  display: flex;
+  width: 100%;
+  height: 96px;
+  padding: 32px 60px;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid rgba(35, 35, 33, 0.2);
+  background: #fff;
 }
 
 .products-container .navigation-menu {
-  margin-top: 10px;
-  padding-top: 10px;
-  position: absolute;
-  z-index: 10000;
-  top: 1%;
-  color: #efefee;
-  font-size: 40px;
-  font-family: "Nunito", serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+
+.products-container .nav {
+  width: 700px;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products-container .nav .nav-item {
+  color: #282828;
+  font-family: Montserrat;
+  font-size: 18px;
   font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 20.8px */
+}
+
+.products-container .nav .navbar-button {
+  display: flex;
+  width: 174px;
+  padding: 13px 48px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background: #89937c;
+  color: #eee;
 }
 
 .products-container .restaurant-menu-frame {
@@ -44,7 +67,6 @@
   padding-bottom: 80px;
   width: 100%;
   height: auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,22 +74,113 @@
 
 .products-container .restaurant-menu-frame .board {
   position: relative;
-  margin-top: 100px;
-  width: 1320px;
+  margin-top: 55px;
+  display: flex;
+  width: 85%;
   height: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.products-container .board .dishes-table-head {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products-container .board .dishes-table-head .table-title {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.dishes-table-head .table-title h3 {
+  color: #232321;
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.dishes-table-head .table-title p {
+  color: #000;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.dishes-table-head .new-product-btn {
+  display: flex;
+  padding: 15px 15px;
+  justify-content: center;
   align-items: center;
+  gap: 8px;
+  border-radius: 25px;
+  background: #89937c;
+}
+
+.dishes-table-head .new-product-btn a {
+  color: #fff;
+  font-family: Rubik;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
 }
 
 .products-container .board .dishes-table {
   position: relative;
   width: 100%;
   height: auto;
-  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.dishes-table .table {
+  width: 100%;
+  padding: 24px 16px;
+  border-radius: 16px;
+  background: #f8f8f8;
+}
+
+.dishes-table .table thead {
+  border-bottom: 0.5px solid rgba(35, 35, 33, 0.2);
+}
+
+.dishes-table .table thead tr th {
+  padding: 16px 8px;
+  color: rgba(35, 35, 33, 0.8);
+  text-align: center;
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.dishes-table .table tbody td {
+  padding: 16px 8px;
+  color: #000;
+  text-align: center;
+}
+
+.dishes-table .table tbody td select {
+  min-width: 160px;
+}
+
+.dishes-table .table tbody td input {
+  min-width: 100px;
 }
 
 .products-container .board .dish-container {
@@ -97,200 +210,6 @@
   height: auto;
   display: flex;
   flex-direction: column;
-}
-
-.products-container .long-input label {
-  font-family: "Source Serif Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 25px;
-  color: #ffffff;
-}
-
-.products-container .long-input input {
-  position: relative;
-  margin-top: 10px;
-  padding-left: 20px;
-  width: 100%;
-  height: 54px;
-  border: none;
-  background: #f7f7f7;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
-}
-
-.products-container .long-input textarea {
-  position: relative;
-  margin-top: 10px;
-  padding: 20px;
-  width: 100%;
-  height: 200px;
-  border: none;
-  background: #f7f7f7;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
-}
-
-.products-container .half-input select {
-  position: relative;
-  margin-top: 10px;
-  padding: 0px 20px;
-  width: 100%;
-  height: 55px;
-  display: flex;
-  border: none;
-  background: #f7f7f7;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  font-family: "GT Walsheim Pro", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
-}
-
-.products-container select:focus {
-  min-width: 100%;
-  width: auto;
-}
-
-.products-container .long-input select {
-  position: relative;
-  margin-top: 10px;
-  padding: 0px 20px;
-  width: 100%;
-  height: 55px;
-  display: flex;
-  border: none;
-  background: #f7f7f7;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  font-family: "GT Walsheim Pro", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
-}
-
-.products-container .dish-container .half-input-frame {
-  position: relative;
-  margin-top: 25px;
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.products-container .half-input-frame .half-input {
-  position: relative;
-  width: 49%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.products-container .half-input label {
-  font-family: "Source Serif Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 25px;
-  color: #ffffff;
-}
-
-.products-container .half-input input {
-  position: relative;
-  margin-top: 10px;
-  padding-left: 20px;
-  width: 100%;
-  height: 54px;
-  border: none;
-  background: #f7f7f7;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-}
-
-.products-container .media-frame {
-  position: relative;
-  margin-top: 10px;
-  width: 100%;
-  height: 250px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.products-container .media-frame .upload-img-box {
-  position: relative;
-  width: 15%;
-  height: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.products-container .upload-img-box img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: block;
-  border-radius: 10px;
-}
-
-.products-container .img-frame {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.products-container .img-frame label {
-  margin-top: 30px;
-  font-family: "Source Serif Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 25px;
-  color: #ffffff;
-}
-
-.products-container #file {
-  opacity: 0;
-  border: none;
-  border-radius: 10px;
-  background: grey;
-  position: absolute;
-  left: 0px;
-  width: 100%;
-  top: 0px;
-  height: 100%;
-  cursor: pointer;
-}
-
-.products-container .operation-buttons {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .products-container .spec-select {
