@@ -38,6 +38,11 @@ export interface OrderInquiry {
   orderStatus: OrderStatus;
 }
 
+export interface OrdersInquiry {
+  page: number;
+  limit: number;
+}
+
 export interface OrderUpdateInput {
   orderId: string;
   orderStatus: OrderStatus;

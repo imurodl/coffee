@@ -6,6 +6,7 @@ import {
   Order,
   OrderInquiry,
   OrderItemInput,
+  OrdersInquiry,
   OrderUpdateInput,
 } from "../libs/types/order";
 import { shapeIntoMongooseObjectId } from "../libs/config";
@@ -120,6 +121,39 @@ class OrderService {
     if (orderStatus === OrderStatus.PROCESS) {
       await this.memberService.addUserPoint(member, 1);
     }
+
+    return result;
+  }
+
+  public async getAllOrders(inquiry: OrdersInquiry): Promise<Order[]> {
+    const match = { orderStatus: { $ne: OrderStatus.DELETE } };
+
+    const result = this.orderModel
+      .aggregate([
+        { $match: match },
+        { $sort: { updatedAt: -1 } },
+        { $skip: (inquiry.page - 1) * inquiry.limit },
+        { $limit: inquiry.limit },
+        {
+          $lookup: {
+            from: "orderItems",
+            localField: "_id",
+            foreignField: "orderId",
+            as: "orderItems",
+          },
+        },
+        {
+          $lookup: {
+            from: "products",
+            localField: "orderItems.productId",
+            foreignField: "_id",
+            as: "productData",
+          },
+        },
+      ])
+      .exec();
+
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
     return result;
   }
