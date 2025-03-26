@@ -69,11 +69,12 @@ orderController.getAllOrders = async (req: ExtendedRequest, res: Response) => {
 
     const { page, limit } = req.query;
     const inquiry: OrdersInquiry = {
-      page: Number(page),
-      limit: Number(limit),
+      page: Number(page) || 1,
+      limit: Number(limit) || 10,
     };
 
     const data = await orderService.getAllOrders(inquiry);
+    console.log("orderData:", data);
     res.render("orders", { orders: data });
   } catch (err) {
     console.log("Error, getAllOrders:", err);

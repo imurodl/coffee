@@ -1,0 +1,289 @@
+.products-container {
+  position: relative;
+  width: auto;
+  height: auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #e7e7e3;
+}
+
+.products-container a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.products-container .navbar {
+  display: flex;
+  width: 100%;
+  height: 96px;
+  padding: 32px 60px;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid rgba(35, 35, 33, 0.2);
+  background: #fff;
+}
+
+.products-container .navigation-menu {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+
+.products-container .nav {
+  width: 700px;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products-container .nav .nav-item {
+  color: #282828;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 20.8px */
+}
+
+.products-container .nav .navbar-button {
+  display: flex;
+  width: 174px;
+  padding: 13px 48px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background: #89937c;
+  color: #eee;
+}
+
+.products-container .restaurant-menu-frame {
+  position: relative;
+  padding-bottom: 80px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products-container .restaurant-menu-frame .board {
+  position: relative;
+  margin-top: 55px;
+  display: flex;
+  width: 85%;
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.products-container .board .dishes-table-head {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products-container .board .dishes-table-head .table-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.dishes-table-head .table-title h3 {
+  color: #232321;
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.dishes-table-head .table-title p {
+  color: #000;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.dishes-table-head .new-product-btn {
+  display: flex;
+  padding: 15px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 25px;
+  background: #89937c;
+}
+
+.dishes-table-head .new-product-btn a {
+  color: #fff;
+  font-family: Rubik;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+}
+
+.products-container .board .dishes-table {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dishes-table .table {
+  width: 100%;
+  padding: 24px 16px;
+  border-radius: 16px;
+  background: #f8f8f8;
+}
+
+.dishes-table .table thead {
+  border-bottom: 0.5px solid rgba(35, 35, 33, 0.2);
+}
+
+.dishes-table .table thead tr th {
+  padding: 16px 8px;
+  color: rgba(35, 35, 33, 0.8);
+  text-align: center;
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.dishes-table .table tbody td {
+  padding: 16px 8px;
+  color: #000;
+  text-align: center;
+}
+
+.dishes-table .table tbody td select {
+  min-width: 160px;
+}
+
+.products-container .board .dish-container {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products-container .new-dish-txt {
+  font-family: "Source Serif Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 25px;
+  color: #ffffff;
+}
+
+.products-container .long-input {
+  position: relative;
+  margin-top: 25px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.products-container .spec-select {
+  position: relative;
+  padding: 0px 7px;
+  height: 27px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  font-family: "GT Walsheim Pro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.products-container table td,
+table th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.products-container .switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+}
+
+.products-container .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.products-container .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.products-container .slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 6px;
+  bottom: 3.5px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.products-container input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.products-container input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+.products-container input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.products-container .slider.round {
+  border-radius: 34px;
+}
+
+.products-container .slider.round:before {
+  border-radius: 50%;
+}

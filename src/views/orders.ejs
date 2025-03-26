@@ -1,6 +1,6 @@
 <%- include('includes/header') %>
 
-<link rel="stylesheet" type="text/css" href="/css/products.css" />
+<link rel="stylesheet" type="text/css" href="/css/orders.css" />
 
 <body>
   <div class="products-container">
@@ -32,7 +32,7 @@
             <a class="nav-link" href="/admin/user/all">Members</a>
           </li>
           <li class="nav-item" style="cursor: pointer">
-            <a class="nav-link" href="/order/all">Orders</a>
+            <a class="nav-link" href="/admin/order/all">Orders</a>
           </li>
           <li
             class="nav-item"
@@ -51,12 +51,8 @@
       <div class="board">
         <div class="dishes-table-head">
           <div class="table-title">
-            <h3>Products List</h3>
-            <p>Home > Products List</p>
-          </div>
-          <div class="new-product-btn">
-            <img src="/img/plus-icon.svg" alt="">
-            <a href="">Add new product</a>
+            <h3>Orders List</h3>
+            <p>Home > Orders List</p>
           </div>
         </div>
         <div class="dishes-table">
@@ -64,46 +60,27 @@
             <thead>
               <tr>
                 <th scope="col">T/r</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Type</th>
-                <th scope="col">Volume</th>
-                <th scope="col">Price</th>
-                <th scope="col">Stock Quantity</th>
+                <th scope="col">User</th>
+                <th scope="col">OrderId</th>
+                <th scope="col">Date</th>
                 <th scope="col">Status</th>
+                <th scope="col">Amount</th>
               </tr>
             </thead>
-            <% products.map(function(value, key) { %>
+            <% orders.map(function(value, key) { %>
             <tbody>
               <td><%= key + 1 %></td>
-              <td><%= value.productName %></td>
-              <td><%= value.productCollection %></td>
+              <td><%= value.memberData[0].memberNick %></td>
+              <td><%= value._id %></td>
+              <td><%= value.createdAt %></td>
               <td>
-                <%= value.productCollection === 'DRINK' ? value.productVolume :
-                value.productSize %>
-              </td>
-              <td>
-                <input type="number"
-                  class="form-control new-product-price"
-                  id="<%= value._id %>"
-                  value="<%= value.productPrice %>"
-                  min="0"
-                />
-              </td>
-              <td>
-                <input type="number"
-                  class="form-control new-product-left-count"
-                  id="<%= value._id %>"
-                  value="<%= value.productLeftCount %>"
-                  min="0"
-                />
-              </td>
-              <td>
-                <select class="spec-select new-product-status" id="<%= value._id %>">
-                  <option value="PAUSE" <%= value.productStatus === 'PAUSE' ? 'selected' : '' %>>PAUSE</option>
-                  <option value="PROCESS" <%= value.productStatus === 'PROCESS' ? 'selected' : '' %>>PROCESS</option>
-                  <option value="DELETE" <%= value.productStatus === 'DELETE' ? 'selected' : '' %>>DELETE</option>
+                <select class="spec-select order-status" id="<%= value._id %>">
+                  <option value="PAUSE" <%= value.orderStatus === 'PAUSE' ? 'selected' : '' %>>PAUSE</option>
+                  <option value="PROCESS" <%= value.orderStatus === 'PROCESS' ? 'selected' : '' %>>PROCESS</option>
+                  <option value="FINISH" <%= value.orderStatus === 'FINISH' ? 'selected' : '' %>>FINISH</option>
                 </select>
               </td>
+              <td><%= value.orderTotal %>$</td>
             </tbody>
             <% }) %>
           </table>
@@ -129,7 +106,7 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="/js/products.js"></script>
+  <script type="text/javascript" src="/js/orders.js"></script>
 </body>
 
 <%- include('includes/footer') %>
