@@ -62,8 +62,8 @@
                 <th scope="col">Name</th>
                 <th scope="col">Phone</th>
                 <th scope="col">Points</th>
-                <th scope="col">Register date</th>
                 <th scope="col">Status</th>
+                <th scope="col">Register date</th>
               </tr>
             </thead>
             <% users.map(function(value, index) { %>
@@ -72,7 +72,6 @@
               <td><%= value.memberNick %></td>
               <td><%= value.memberPhone %></td>
               <td><%= value.memberPoints %></td>
-              <td><%= new Date(value.createdAt).toLocaleString() %></td>
               <td style="width: 13%">
                 <select class="spec-select member-status" id="<%= value._id %>">
                   <option value="ACTIVE" <%= value.memberStatus === 'ACTIVE' ? 'selected' : '' %> >ACTIVE</option>
@@ -80,6 +79,7 @@
                   <option value="DELETE" <%= value.memberStatus === 'DELETE' ? 'selected' : '' %> >DELETE</option>
                 </select>
               </td>
+              <td><%= moment(value.createdAt).format("HH:mm DD.MM.YYYY") %></td>
             </tbody>
             <% }) %>
           </table>

@@ -64,14 +64,13 @@
                 <th scope="col">Date</th>
                 <th scope="col">Status</th>
                 <th scope="col">Amount</th>
-                <th scope="col">OrderId</th>
               </tr>
             </thead>
             <% orders.map(function(value, key) { %>
             <tbody>
               <td><%= key + 1 %></td>
               <td><%= value.memberData[0].memberNick %></td>
-              <td><%= moment(value.createdAt).format("YYYY-MM-DD HH:mm") %></td>
+              <td><%= moment(value.createdAt).format("HH:mm DD.MM.YYYY") %></td>
               <td>
                 <select class="spec-select order-status" id="<%= value._id %>">
                   <option value="PAUSE" <%= value.orderStatus === 'PAUSE' ? 'selected' : '' %>>PAUSE</option>
@@ -80,7 +79,6 @@
                 </select>
               </td>
               <td><%= value.orderTotal %>$</td>
-              <td><%= value._id %></td>
             </tbody>
             <% }) %>
           </table>

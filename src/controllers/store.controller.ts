@@ -4,6 +4,7 @@ import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 import Errors, { HttpCode, Message } from "../libs/Errors";
+import moment from "moment";
 
 const memberService = new MemberService();
 
@@ -103,7 +104,7 @@ storeController.getUsers = async (req: Request, res: Response) => {
   try {
     console.log("getUsers");
     const result = await memberService.getUsers();
-    res.render("users", { users: result });
+    res.render("users", { users: result, moment: moment });
   } catch (err) {
     console.log("Error, getUsers:", err);
     res.redirect("/admin/login");
