@@ -125,6 +125,18 @@ class OrderService {
     return result;
   }
 
+  public async updateOrderByAdmin(input: OrderUpdateInput): Promise<Order> {
+    input.orderId = shapeIntoMongooseObjectId(input.orderId);
+
+    const result = await this.orderModel
+      .findByIdAndUpdate({ _id: input.orderId }, input, { new: true })
+      .exec();
+    console.log("result", result);
+    if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+
+    return result;
+  }
+
   public async getAllOrders(inquiry: OrdersInquiry): Promise<Order[]> {
     const match = { orderStatus: { $ne: OrderStatus.DELETE } };
 

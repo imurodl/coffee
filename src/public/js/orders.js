@@ -6,13 +6,14 @@ $(function () {
       orderStatus = $(`#${id}.order-status`).val();
     axios
       .post("/admin/order/update", {
-        _id: id,
+        orderId: id,
         orderStatus: orderStatus,
       })
       .then((response) => {
         const result = response.data;
         if (result.data) {
           $(".order-status").blur();
+          alert("Order is updated!");
         } else alert("Order update failed!");
       })
       .catch((err) => {

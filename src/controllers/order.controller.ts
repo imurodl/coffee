@@ -9,6 +9,7 @@ import {
   OrderUpdateInput,
 } from "../libs/types/order";
 import { OrderStatus } from "../libs/enums/order.enum";
+import moment from "moment";
 
 const orderController: T = {};
 
@@ -74,11 +75,27 @@ orderController.getAllOrders = async (req: ExtendedRequest, res: Response) => {
     };
 
     const data = await orderService.getAllOrders(inquiry);
-    console.log("orderData:", data);
-    res.render("orders", { orders: data });
+    res.render("orders", { orders: data, moment: moment });
   } catch (err) {
     console.log("Error, getAllOrders:", err);
-    res.redirect("/admin/login");
+    res.redirect("/admin/home");
+  }
+};
+
+orderController.updateOrderByAdmin = async (
+  req: ExtendedRequest,
+  res: Response
+) => {
+  try {
+    console.log("updateOrderByAdmin");
+    console.log("input", req.body);
+    const input: OrderUpdateInput = req.body;
+
+    const result = await orderService.updateOrderByAdmin(input);
+    res.status(HttpCode.OK).json({ data: result });
+  } catch (err) {
+    console.log("Error, updateOrderByAdmin:", err);
+    res.redirect("/admin/order/all");
   }
 };
 

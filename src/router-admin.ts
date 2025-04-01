@@ -62,4 +62,10 @@ routerAdmin.get(
   orderController.getAllOrders
 );
 
+routerAdmin.post(
+  "/order/update",
+  storeController.verifyRestaurant,
+  orderController.updateOrderByAdmin
+);
+
 export default routerAdmin;
