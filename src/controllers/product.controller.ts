@@ -107,4 +107,14 @@ productController.updateChosenProduct = async (req: Request, res: Response) => {
   }
 };
 
+productController.getCreateProduct = async (req: Request, res: Response) => {
+  try {
+    console.log("getCreateProduct");
+    res.render("new-product");
+  } catch (err) {
+    console.log("Error, getCreateProduct:", err);
+    res.redirect("/admin/product/all");
+  }
+};
+
 export default productController;

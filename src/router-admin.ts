@@ -41,6 +41,13 @@ routerAdmin.post(
   storeController.verifyRestaurant,
   productController.updateChosenProduct
 );
+
+routerAdmin.get(
+  "/product/new", // param
+  storeController.verifyRestaurant,
+  productController.getCreateProduct
+);
+
 /** User */
 routerAdmin.get(
   "/user/all",
