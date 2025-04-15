@@ -13,8 +13,7 @@ body {
 .signup-container .signup-left {
   width: 800px;
   height: 930px;
-  background: url("https://s3-alpha-sig.figma.com/img/066a/8735/77147b1fd853f0906ab95316f615f6c4?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=BtbvBeSPWA1jEs7A0QE6w-0g21I0KciyKlYd4dj-XRUVPHFJW~~m4~BT1HiJS~5ew~uiVD98hqFuqL-nBqWbnbzob33ICp3hrNkE62BJ1XG68oLoLMOvLGrgRvID6OFpCDIjNcm3OVa8615B86QyFusMAinj~AmMukYP0iaC~CRFkeY3g23E0WAuXRYYCnj76a~qW~xGOWSR7zvNtr~2~na33Fgu78gjnVXlxsTSrKANLicm7Gm~BeU2ePPbM18I26mPbH54siJaL9iCh2El8AZkX1OYxRlCm~kG4qvTsGl547RpkggSMncmTt-YSdRx30IlFNfKGF~MNEREPKIuJQ__")
-    lightgray 0% 0% / 100px 100px repeat;
+  background: url("/img/green-back.png") lightgray 0% 0% / 100px 100px repeat;
   display: flex;
   align-items: center;
   flex-direction: column;

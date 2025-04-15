@@ -62,8 +62,7 @@
 .home-container .main-content .main-img {
   width: 683px;
   height: 527px;
-  background: url("https://s3-alpha-sig.figma.com/img/bf96/b6dd/cf3ecaac43ee0cef13f2f845107fc517?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=faCsYecUrLo4G0soJUuL01KPaqiK5uPeGR7a3y-utnu3tk7uOnyhgnuhQyhuQSgOHwKkati1q0lruq~Ea8zPtRCkSLmxZNSnSBs6qDaQIW8~zWA5hgZwWhG1T5TxOaiS1jGElNFZA5wz0YGqH86nCJffVb6-AVNh6PiqQPqy1daA989J9RqSmHHIZkvt4tcd8mQWL4SaIvR2a2Xzm9zh3sYD~kMnAuWyeC~LkCbj~TvC62ml0d~RmlTgoGpWnqX5CNyzedQRFTdFPfmnfKhaaGOY~Uv5GeVU3y6JN2617oUGLJgsOQZCccSkFxe3jh2uCNDXbwm~uua4wZAC8OXDcA__")
-    #fdfdfd 50% / cover no-repeat;
+  margin-right: 20px;
 }
 
 .home-container .main-content .main-text {
