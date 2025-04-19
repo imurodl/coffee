@@ -47,6 +47,11 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path;
+  next();
+});
+
 // 3-VIEWS
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
