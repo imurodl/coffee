@@ -50,6 +50,13 @@
   color: #eee;
 }
 
+.nav-link.active,
+.nav-link:hover {
+  background-color: #f3f0ff;
+  color: #6b21a8;
+  border-radius: 4px;
+}
+
 .home-container .main-content {
   margin-top: 150px;
   width: 1194px;

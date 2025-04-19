@@ -43,6 +43,13 @@
   align-items: center;
 }
 
+.nav-link.active,
+.nav-link:hover {
+  background-color: #f3f0ff;
+  color: #6b21a8;
+  border-radius: 4px;
+}
+
 .products-container .nav .nav-item {
   color: #282828;
   font-family: Montserrat;

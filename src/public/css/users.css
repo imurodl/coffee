@@ -27,6 +27,13 @@
   background: #fff;
 }
 
+.nav-link.active,
+.nav-link:hover {
+  background-color: #f3f0ff;
+  color: #6b21a8;
+  border-radius: 4px;
+}
+
 .users-container .navigation-menu {
   display: flex;
   width: 90%;
