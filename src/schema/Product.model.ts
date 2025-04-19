@@ -38,7 +38,7 @@ const productSchema = new Schema(
     productSize: {
       type: String,
       enum: ProductSize,
-      default: ProductSize.NORMAL,
+      default: ProductSize.MEDIUM,
     },
 
     productVolume: {
