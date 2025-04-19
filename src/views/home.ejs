@@ -4,49 +4,51 @@
 
 <body>
   <div class="home-container">
-    <div class="navigation-menu">
-      <div class="brand-logo">
-        <a href="/admin"
-          ><img src="/img/coffeebuy-logo.svg" alt="brand-logo"
-        /></a>
-      </div>
-      <ul class="nav">
-        <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link active" href="/admin" style="font-size: 22px"
-            >Home</a
+    <div class="navbar">
+      <div class="navigation-menu">
+        <div class="brand-logo">
+          <a href="/admin"
+            ><img src="/img/coffeebuy-logo.svg" alt="brand-logo"
+          /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item" style="cursor: pointer">
+            <a class="nav-link active" href="/admin" style="font-size: 22px"
+              >Home</a
+            >
+          </li>
+          <% if(!member) { %>
+          <li class="nav-item" style="cursor: pointer">
+            <a class="nav-link navbar-button" href="/admin/signup">Signup</a>
+          </li>
+          <li class="nav-item" style="cursor: pointer">
+            <a class="nav-link navbar-button" href="/admin/login">Login</a>
+          </li>
+          <% } else { %>
+          <li class="nav-item" style="cursor: pointer">
+            <a class="nav-link" href="/admin/product/all">Products</a>
+          </li>
+          <li class="nav-item" style="cursor: pointer">
+            <a class="nav-link" href="/admin/user/all">Members</a>
+          </li>
+          <li class="nav-item" style="cursor: pointer">
+            <a class="nav-link" href="/admin/order/all">Orders</a>
+          </li>
+          <li
+            class="nav-item"
+            style="cursor: pointer"
+            onclick="return confirm('Do you want to logout?')"
           >
-        </li>
-        <% if(!member) { %>
-        <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link navbar-button" href="/admin/signup">Signup</a>
-        </li>
-        <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link navbar-button" href="/admin/login">Login</a>
-        </li>
-        <% } else { %>
-        <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" href="/admin/product/all">Products</a>
-        </li>
-        <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" href="/admin/user/all">Members</a>
-        </li>
-        <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" href="/admin/order/all">Orders</a>
-        </li>
-        <li
-          class="nav-item"
-          style="cursor: pointer"
-          onclick="return confirm('Do you want to logout?')"
-        >
-          <a class="nav-link" href="/admin/logout">Logout</a>
-        </li>
-        <% } %>
-      </ul>
+            <a class="nav-link" href="/admin/logout">Logout</a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
     </div>
 
     <div class="main-content">
       <div class="main-img">
-        <img src="/img/main-page-poster.png" alt="">
+        <img src="/img/main-page-poster.png" alt="" />
       </div>
       <div class="main-text">
         <p>What's new?</p>
