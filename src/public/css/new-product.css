@@ -23,6 +23,24 @@ textarea:focus {
   box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
 }
 
+.products-container {
+  position: relative;
+  width: auto;
+  height: auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("/img/coffee-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.products-container a {
+  text-decoration: none;
+  /* color: #000000; */
+}
+
 /* Navbar */
 .products-container .navbar {
   display: flex;
@@ -79,77 +97,165 @@ textarea:focus {
   color: #eee;
 }
 
+.products-container .restaurant-menu-frame {
+  position: relative;
+  padding-bottom: 80px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Board */
 .board {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
-  max-width: 1000px;
-  margin: 2rem auto;
+  position: relative;
+  margin-top: 55px;
+  display: flex;
+  width: 85%;
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
 }
 
-/* Heading */
-.dishes-table-head {
-  margin-bottom: 1.5rem;
+.products-container .board .dishes-table-head {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.table-title h3 {
-  font-size: 28px;
-  margin: 0;
-  color: #4b5563;
+.products-container .board .dishes-table-head .table-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
-.table-title p {
-  font-size: 14px;
-  color: #9ca3af;
+.dishes-table-head .table-title h3 {
+  color: #232321;
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.dishes-table-head .table-title p {
+  color: #000;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* BODY => */
+
+.dish-container {
+  width: 100%;
+  height: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.dish-container .top-part {
+  width: 100%;
+  height: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dish-container .top-part .top-part-left {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
 }
 
 /* Input Sections */
-.login-input-frame,
-.half-input-frame,
-.long-input {
-  margin-bottom: 1.5rem;
+.top-part-left .long-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-start;
 }
 
-.long-input,
-.half-input {
+.top-part-left .long-input label {
+  color: #232321;
+  font-family: "Rubik";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.top-part-left .long-input input {
+  width: 100%;
+  height: 48px;
+  padding: 10px 16px;
+}
+
+/* Textarea */
+.top-part-left .long-input textarea {
+  width: 100%;
+  height: 180px;
+}
+
+/* Select */
+.top-part-left .long-input select {
+  resize: vertical;
+  width: 100%;
+  height: 48px;
+}
+
+.dish-container .top-part .top-part-right {
+  width: 48%;
   display: flex;
   flex-direction: column;
 }
 
-.half-input-frame {
+.dish-container .top-part .top-part-right .img-frame {
   display: flex;
-  gap: 20px;
-}
-
-/* Textarea */
-textarea.product-desc {
-  resize: vertical;
-  min-height: 80px;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
 }
 
 /* Upload Images */
 .img-frame label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+  color: var(--Dark-Gray, #232321);
+  font-family: "Rubik";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .media-frame {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 .upload-img-box {
-  width: 100px;
-  height: 100px;
-  border: 2px dashed #ddd;
-  border-radius: 10px;
+  width: 354px;
+  height: 200px;
+  border-radius: 6.186px;
+  border: 0.773px dashed #232321;
   position: relative;
   overflow: hidden;
-  background-color: #f9f9f9;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,33 +281,40 @@ textarea.product-desc {
 /* Buttons */
 .operation-buttons {
   display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 2rem;
+  justify-content: flex-start;
+  gap: 16px;
 }
 
 #cancel-btn {
-  background-color: #f87171;
+  background-color: #e75050;
   border: none;
   color: white;
-  padding: 10px 20px;
+  width: 220px;
+  height: 48px;
+  padding: 8px 16px;
   font-weight: bold;
 }
 
+#cancel-button a {
+  color: #fff;
+}
+
 #create-btn {
-  background-color: #4f46e5;
+  background-color: #4e5b3e;
   border: none;
   color: white;
-  padding: 10px 20px;
+  width: 220px;
+  height: 48px;
+  padding: 8px 16px;
   font-weight: bold;
 }
 
 #cancel-btn:hover {
-  background-color: #ef4444;
+  background-color: #ec6767;
 }
 
 #create-btn:hover {
-  background-color: #4338ca;
+  background-color: #61714d;
 }
 
 /* Pagination */

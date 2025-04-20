@@ -132,8 +132,9 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  border-radius: 25px;
-  background: #89937c;
+  border-radius: 22px;
+  background: #4e5b3e;
+  cursor: pointer;
 }
 
 .dishes-table-head .new-product-btn a {

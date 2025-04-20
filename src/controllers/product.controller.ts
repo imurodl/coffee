@@ -25,6 +25,7 @@ productController.getProducts = async (req: Request, res: Response) => {
       inquiry.productCollection = productCollection as ProductCollection;
     if (search) inquiry.search = String(search);
     const result = await productService.getProducts(inquiry);
+    console.log("products:", result);
 
     res.status(HttpCode.OK).json(result);
   } catch (err) {
