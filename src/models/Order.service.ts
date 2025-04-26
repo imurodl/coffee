@@ -33,7 +33,7 @@ class OrderService {
     const amount = input.reduce((total: number, item: OrderItemInput) => {
       return total + item.itemPrice * item.itemQuantity;
     }, 0);
-    const delivery = amount < 100 ? 5 : 0;
+    const delivery = amount < 36 ? 5 : 0;
 
     try {
       const newOrder: Order = await this.orderModel.create({
