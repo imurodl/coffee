@@ -32,6 +32,10 @@
   background: #fff;
 }
 
+.home-container .navigation-menu .brand-logo img {
+  width: 94px;
+}
+
 .home-container .nav {
   width: 700px;
   height: 45px;
@@ -110,32 +114,39 @@
 .main-content .main-text .content-button {
   margin-top: 25px;
   display: flex;
-  width: 174px;
-  padding: 13px 0px;
+  width: 180px;
+  padding: 12px 0;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border-radius: 25px;
+  gap: 8px;
+  border-radius: 50px;
   background: #4e5b3e;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.main-content .main-text .content-button:hover {
+  background: #3b472f;
+  transform: translateY(-2px);
 }
 
 .main-content .main-text .content-button a {
   display: flex;
-  gap: 10px;
-  cursor: pointer;
+  gap: 8px;
   align-items: center;
+  text-decoration: none;
 }
 
 .main-content .main-text .content-button span {
-  color: #f8f8f8;
-  font-family: Montserrat;
-  font-size: 16px;
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
   font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .main-content .main-text .content-button img {
-  width: 5px;
-  height: 8px;
+  width: 6px;
+  height: 10px;
 }
