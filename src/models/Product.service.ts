@@ -33,8 +33,10 @@ class ProductService {
       match.productName = { $regex: new RegExp(inquiry.search, "i") };
     const sort: T =
       inquiry.order === "productPrice"
-        ? { [inquiry.order]: 1 }
-        : { [inquiry.order]: -1 };
+        ? { [inquiry.order]: inquiry?.direction ?? 1 }
+        : { [inquiry.order]: inquiry?.direction ?? -1 };
+    console.log("sort:", sort);
+    console.log("direction:", inquiry?.direction);
 
     const result = await this.productModel
       .aggregate([

@@ -23,6 +23,7 @@ export interface ProductInquiry {
   limit: number;
   productCollection?: ProductCollection;
   search?: string;
+  direction?: number;
 }
 
 export interface ProductInput {

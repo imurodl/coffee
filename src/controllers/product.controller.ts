@@ -15,7 +15,8 @@ productController.getProducts = async (req: Request, res: Response) => {
   try {
     console.log("getProducts");
 
-    const { page, limit, order, productCollection, search } = req.query;
+    const { page, limit, order, productCollection, search, direction } =
+      req.query;
     const inquiry: ProductInquiry = {
       order: String(order),
       page: Number(page),
@@ -24,6 +25,8 @@ productController.getProducts = async (req: Request, res: Response) => {
     if (productCollection)
       inquiry.productCollection = productCollection as ProductCollection;
     if (search) inquiry.search = String(search);
+    if (direction) inquiry.direction = Number(direction);
+    
     const result = await productService.getProducts(inquiry);
     console.log("products:", result);
 
