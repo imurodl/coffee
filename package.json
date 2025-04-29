@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node dist/server.js",
     "start:dev": "nodemon --exec ts-node src/server.ts",
-    "build": "tsc",
+    "build": "tsc && npm run copy:views",
+    "copy:views": "cp -r src/views dist/views",
     "train": "nodemon --exec ts-node src/train.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
