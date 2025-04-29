@@ -61,6 +61,6 @@ app.use("/admin", routerAdmin); // SSR: EJS
 app.use("/", router); // SPA: REACT
 
 // Serve uploads folder
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 export default app;
