@@ -4,7 +4,7 @@
   "description": "This is Coffee store project Backend",
   "main": "src/server.ts",
   "scripts": {
-    "start": "ts-node src/server.ts",
+    "start": "node dist/server.js",
     "start:dev": "nodemon --exec ts-node src/server.ts",
     "build": "tsc",
     "train": "nodemon --exec ts-node src/train.ts",
