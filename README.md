@@ -32,25 +32,12 @@ It provides RESTful APIs for authentication, product management, orders, and use
 
 ---
 
-## 📁 Folder Structure
-
-src/
-├── controllers/
-├── routes/
-├── models/
-├── middlewares/
-├── uploads/
-├── utils/
-└── app.js
-
----
-
 ## ⚙️ Getting Started
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/amaya-backend.git
-cd amaya-backend
+git clone https://github.com/imurodl/coffee.git
+cd coffee
 
 # Install dependencies
 npm install
