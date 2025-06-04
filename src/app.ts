@@ -26,12 +26,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("./uploads"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(
-  cors({
-    origin: true,
-    credentials: true,
-  })
-);
+app.use(cors({ credentials: true, origin: true }));
 app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT));
 
@@ -54,11 +49,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use((req, res, next) => {
-  res.locals.currentPath = req.path;
-  next();
-});
-
 // 3-VIEWS
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -66,9 +56,6 @@ app.set("view engine", "ejs");
 // 4-ROUTERS
 app.use("/admin", routerAdmin); // SSR: EJS
 app.use("/", router); // SPA: REACT
-
-// Serve uploads folder
-app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 const server = http.createServer(app);
 const io = new SocketIOServer(server, {
