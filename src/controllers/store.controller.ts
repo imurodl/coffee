@@ -127,11 +127,14 @@ storeController.checkAuthSession = async (req: AdminRequest, res: Response) => {
   try {
     console.log("checkAuthSession");
 
-    if (req.session?.member)
-      res.send(
-        `<script> alert("Hi! ${req.session.member.memberNick}")</script>`
-      );
-    else res.send(`<script> alert("${Message.NOT_AUTHENTICATED}")</script>`);
+    if (req.session?.member) {
+      // Safely embed the (user-controlled) nick as a JS string literal.
+      const safeNick = JSON.stringify(
+        String(req.session.member.memberNick)
+      ).replace(/</g, "\\u003c");
+      res.send(`<script> alert("Hi! " + ${safeNick})</script>`);
+    } else
+      res.send(`<script> alert("${Message.NOT_AUTHENTICATED}")</script>`);
   } catch (err) {
     console.log("Error, checkAuthSession:", err);
     res.send(err);

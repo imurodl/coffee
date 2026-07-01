@@ -1,6 +1,7 @@
 import { ObjectId } from "mongoose";
 import OrderItemModel from "../schema/OrderItem.model";
 import OrderModel from "../schema/Order.model";
+import ProductModel from "../schema/Product.model";
 import { Member } from "../libs/types/member";
 import {
   Order,
@@ -30,9 +31,37 @@ class OrderService {
     input: OrderItemInput[]
   ): Promise<Order> {
     const memberId = shapeIntoMongooseObjectId(member._id);
-    const amount = input.reduce((total: number, item: OrderItemInput) => {
-      return total + item.itemPrice * item.itemQuantity;
-    }, 0);
+
+    if (!Array.isArray(input) || input.length === 0) {
+      throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
+    }
+
+    // Resolve prices server-side; never trust client-supplied itemPrice.
+    const productIds = input.map((item) =>
+      shapeIntoMongooseObjectId(item.productId)
+    );
+    const products = await ProductModel.find({
+      _id: { $in: productIds },
+    }).exec();
+    const productMap = new Map(products.map((p: any) => [String(p._id), p]));
+
+    const sanitizedItems: OrderItemInput[] = input.map((item) => {
+      const product = productMap.get(String(item.productId));
+      const quantity = Number(item.itemQuantity);
+      if (!product || !Number.isInteger(quantity) || quantity <= 0) {
+        throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
+      }
+      return {
+        productId: item.productId,
+        itemQuantity: quantity,
+        itemPrice: product.productPrice,
+      };
+    });
+
+    const amount = sanitizedItems.reduce(
+      (total, item) => total + item.itemPrice * item.itemQuantity,
+      0
+    );
     const delivery = amount < 36 ? 5 : 0;
 
     try {
@@ -42,7 +71,7 @@ class OrderService {
         memberId: memberId,
       });
       const orderId = newOrder._id;
-      await this.recordOrderItem(orderId, input);
+      await this.recordOrderItem(orderId, sanitizedItems);
 
       return newOrder;
     } catch (err) {

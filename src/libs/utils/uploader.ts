@@ -16,9 +16,24 @@ function getTargetImageStorage(address: any) {
   });
 }
 
+const ALLOWED_IMAGE_TYPES = [
+  "image/jpeg",
+  "image/jpg",
+  "image/png",
+  "image/webp",
+  "image/svg+xml",
+];
+
 const makeUploader = (address: string) => {
   const storage = getTargetImageStorage(address);
-  return multer({ storage: storage });
+  return multer({
+    storage: storage,
+    limits: { fileSize: 5 * 1024 * 1024, files: 5 }, // 5MB per file
+    fileFilter: (req, file, cb) => {
+      if (ALLOWED_IMAGE_TYPES.includes(file.mimetype)) cb(null, true);
+      else cb(new Error("Only image files (jpg, png, webp, svg) are allowed"));
+    },
+  });
 };
 
 export default makeUploader;

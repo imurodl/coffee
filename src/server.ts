@@ -2,6 +2,16 @@ import dotenv from "dotenv";
 dotenv.config({
   path: process.env.NODE_ENV === "production" ? ".env.production" : ".env",
 });
+
+const REQUIRED_ENV = ["MONGO_URL", "SESSION_SECRET", "SECRET_TOKEN"];
+const missingEnv = REQUIRED_ENV.filter((key) => !process.env[key]);
+if (missingEnv.length > 0) {
+  console.error(
+    `FATAL: missing required environment variables: ${missingEnv.join(", ")}`
+  );
+  process.exit(1);
+}
+
 import mongoose from "mongoose";
 import server from "./app";
 

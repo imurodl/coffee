@@ -5,6 +5,18 @@ import productController from "./controllers/product.controller";
 import makeUploader from "./libs/utils/uploader";
 import orderController from "./controllers/order.controller";
 
+// Admin signup is only for initial setup. Disabled in production unless
+// explicitly re-enabled, so the admin account can't be re-seized.
+const guardAdminSignup = (req: any, res: any, next: any) => {
+  if (
+    process.env.NODE_ENV === "production" &&
+    process.env.ALLOW_ADMIN_SIGNUP !== "true"
+  ) {
+    return res.redirect("/admin/login");
+  }
+  next();
+};
+
 /** Restaurant */
 routerAdmin.get("/", storeController.goHome);
 
@@ -13,9 +25,10 @@ routerAdmin
   .post("/login", storeController.processLogin); // post serverdan databasega olib boradi
 
 routerAdmin
-  .get("/signup", storeController.getSignup)
+  .get("/signup", guardAdminSignup, storeController.getSignup)
   .post(
     "/signup",
+    guardAdminSignup,
     makeUploader("members").single("memberImage"),
     storeController.processSignup
   );
