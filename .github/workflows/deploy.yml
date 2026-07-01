@@ -5,6 +5,11 @@ on:
     branches:
       - master
 
+# Never let two deploys of the same branch run at once; cancel the older one.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -17,6 +22,9 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      - name: Unit tests
+        run: npm test
 
       - name: Type-check & build
         run: npm run build
@@ -42,3 +50,15 @@ jobs:
             npm install
             npm run build
             pm2 restart AMAYA --update-env
+
+      - name: Health check
+        run: |
+          set -e
+          for i in 1 2 3 4 5; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" https://api.amaya.uz/product/all || true)
+            echo "attempt $i: api.amaya.uz/product/all -> $code"
+            [ "$code" = "200" ] && exit 0
+            sleep 5
+          done
+          echo "Health check failed: api.amaya.uz/product/all did not return 200"
+          exit 1
