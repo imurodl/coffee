@@ -34,8 +34,8 @@ orderController.getMyOrders = async (req: ExtendedRequest, res: Response) => {
 
     const { page, limit, orderStatus } = req.query;
     const inquiry: OrderInquiry = {
-      page: Number(page),
-      limit: Number(limit),
+      page: Math.max(1, Number(page) || 1),
+      limit: Math.min(100, Math.max(1, Number(limit) || 10)),
       orderStatus: orderStatus as OrderStatus,
     };
 

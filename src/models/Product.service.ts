@@ -29,8 +29,10 @@ class ProductService {
     const match: T = { productStatus: ProductStatus.PROCESS };
     if (inquiry.productCollection)
       match.productCollection = inquiry.productCollection;
-    if (inquiry.search)
-      match.productName = { $regex: new RegExp(inquiry.search, "i") };
+    if (inquiry.search) {
+      const escaped = inquiry.search.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      match.productName = { $regex: new RegExp(escaped, "i") };
+    }
     const sort: T =
       inquiry.order === "productPrice"
         ? { [inquiry.order]: inquiry?.direction ?? 1 }
