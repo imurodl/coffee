@@ -13,6 +13,7 @@ import { ObjectId } from "mongoose";
 import ViewService from "./View.service";
 import { ViewInput } from "../libs/types/view";
 import { viewGroup } from "../libs/enums/view.enum";
+import { escapeRegExp, pageSkip } from "../libs/utils/query";
 
 class ProductService {
   private readonly productModel;
@@ -30,8 +31,7 @@ class ProductService {
     if (inquiry.productCollection)
       match.productCollection = inquiry.productCollection;
     if (inquiry.search) {
-      const escaped = inquiry.search.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      match.productName = { $regex: new RegExp(escaped, "i") };
+      match.productName = { $regex: new RegExp(escapeRegExp(inquiry.search), "i") };
     }
     const sort: T =
       inquiry.order === "productPrice"
@@ -44,7 +44,7 @@ class ProductService {
       .aggregate([
         { $match: match },
         { $sort: sort },
-        { $skip: (inquiry.page * 1 - 1) * inquiry.limit },
+        { $skip: pageSkip(inquiry.page, inquiry.limit) },
         { $limit: inquiry.limit * 1 },
       ])
       .exec();
