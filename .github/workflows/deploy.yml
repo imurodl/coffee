@@ -9,75 +9,36 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20.10.0'
+          node-version: '20'
           cache: npm
 
       - run: npm ci
 
-      - name: Build
+      - name: Type-check & build
         run: npm run build
 
   deploy:
     needs: check
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy via SSH
+      # Requires repo secrets OCI_HOST, OCI_USER, OCI_SSH_KEY.
+      # Env vars live in .env.production on the server (not managed by CI).
+      - name: Deploy to OCI via SSH
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          command_timeout: 30m
-          timeout: 60s
-          envs: MONGO_URL,SESSION_SECRET,SECRET_TOKEN
+          host: ${{ secrets.OCI_HOST }}
+          username: ${{ secrets.OCI_USER }}
+          key: ${{ secrets.OCI_SSH_KEY }}
+          command_timeout: 20m
           script: |
             set -e
             cd /home/max/amaya-project/coffee
             git fetch origin master
             git reset --hard origin/master
-            cat > .env.production <<EOF
-            PORT=4003
-            MONGO_URL=$MONGO_URL
-            SESSION_SECRET=$SESSION_SECRET
-            SECRET_TOKEN=$SECRET_TOKEN
-            EOF
-            chmod 600 .env.production
-            docker compose -f docker-compose.prod.yml build
-            docker compose -f docker-compose.prod.yml up -d
-        env:
-          MONGO_URL: ${{ secrets.MONGO_URL }}
-          SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
-          SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
-
-      - name: Retry deploy on failure
-        if: failure()
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          command_timeout: 30m
-          timeout: 120s
-          envs: MONGO_URL,SESSION_SECRET,SECRET_TOKEN
-          script: |
-            set -e
-            cd /home/max/amaya-project/coffee
-            git fetch origin master
-            git reset --hard origin/master
-            cat > .env.production <<EOF
-            PORT=4003
-            MONGO_URL=$MONGO_URL
-            SESSION_SECRET=$SESSION_SECRET
-            SECRET_TOKEN=$SECRET_TOKEN
-            EOF
-            chmod 600 .env.production
-            docker compose -f docker-compose.prod.yml build
-            docker compose -f docker-compose.prod.yml up -d
-        env:
-          MONGO_URL: ${{ secrets.MONGO_URL }}
-          SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
-          SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
+            npm install
+            npm run build
+            pm2 restart AMAYA --update-env
