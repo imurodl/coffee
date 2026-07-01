@@ -40,12 +40,12 @@ memberController.signup = async (req: Request, res: Response) => {
 
     res.cookie("accessToken", token, {
       maxAge: AUTH_TIMER * 3600 * 1000,
-      httpOnly: false,
+      httpOnly: true,
       secure: true,
       sameSite: "none",
     });
 
-    res.status(HttpCode.CREATED).json({ member: result, accessToken: token });
+    res.status(HttpCode.CREATED).json({ member: result });
   } catch (err) {
     console.log("Error, signup:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
@@ -63,10 +63,12 @@ memberController.login = async (req: Request, res: Response) => {
 
     res.cookie("accessToken", token, {
       maxAge: AUTH_TIMER * 3600 * 1000,
-      httpOnly: false,
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
     });
 
-    res.status(HttpCode.OK).json({ member: result, accessToken: token });
+    res.status(HttpCode.OK).json({ member: result });
   } catch (err) {
     console.log("Error, login:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
@@ -81,6 +83,8 @@ memberController.logout = async (req: ExtendedRequest, res: Response) => {
     res.cookie("accessToken", null, {
       maxAge: 0,
       httpOnly: true,
+      secure: true,
+      sameSite: "none",
     });
     res.status(HttpCode.OK).json({ logout: true });
   } catch (err) {
