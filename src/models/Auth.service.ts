@@ -29,12 +29,12 @@ class AuthService {
   }
 
   public async checkAuth(token: string): Promise<Member> {
-    const result: Member = (await jwt.verify(
-      token,
-      this.secretToken
-    )) as Member;
-    console.log(`---- [AUTH] memberNick: ${result.memberNick} ----`);
-    return result;
+    try {
+      return jwt.verify(token, this.secretToken) as Member;
+    } catch {
+      // invalid / expired / malformed token
+      throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
+    }
   }
 }
 
