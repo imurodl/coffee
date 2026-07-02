@@ -1,0 +1,16 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: amaya-api:latest
+    container_name: amaya-api
+    restart: unless-stopped
+    env_file:
+      - .env.production
+    ports:
+      # Bind to loopback only; nginx (api.amaya.uz) proxies to 127.0.0.1:4003
+      - "127.0.0.1:4003:4003"
+    volumes:
+      # Persist user uploads across rebuilds (multer writes here, served at /uploads)
+      - ./uploads:/app/uploads
