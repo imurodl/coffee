@@ -31,8 +31,8 @@ server-rendered admin panel.
 - **Realtime**: Socket.IO
 - **File upload**: Multer
 - **Admin panel**: EJS views served from `/admin`
-- **Process manager**: pm2
-- **Deployment**: OCI (Ubuntu, ARM) behind nginx
+- **Containerization**: Docker + Docker Compose
+- **Deployment**: OCI (Ubuntu, ARM) — Docker container behind nginx
 
 ---
 

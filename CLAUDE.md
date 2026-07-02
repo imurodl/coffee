@@ -4,8 +4,8 @@ REST API + SSR admin panel for Amaya Roasting Co. Companion frontend: the
 `coffee-react` repo. Live: `https://api.amaya.uz`.
 
 ## Stack
-- TypeScript + Express 4, run via `ts-node` (dev) / compiled `dist` (prod)
-- MongoDB + Mongoose 6
+- TypeScript + Express 4, run via `ts-node` (dev) / compiled `dist` in Docker (prod)
+- MongoDB Atlas + Mongoose 6 (external `mongodb+srv://`, no local DB)
 - Auth: JWT in an httpOnly cookie (`accessToken`); express-session (Mongo-backed) for the admin panel
 - Socket.IO for realtime; Multer for uploads; EJS for the `/admin` SSR views
 - Security middleware: helmet, cors (allowlist), express-rate-limit
@@ -44,16 +44,20 @@ CORS_ORIGINS=https://amaya.uz,https://www.amaya.uz   # optional; comma-separated
 ```
 Prod runs on port 4003 (behind nginx as `api.amaya.uz`); the code default is 3003.
 
-## Deployment
+## Deployment (Docker)
 - Push to `master` → GitHub Actions (`.github/workflows/deploy.yml`).
 - `check` job: `npm ci` → `npm test` → `npm run build`.
 - `deploy` job: SSH to OCI (`ubuntu@141.147.164.154`), `git reset --hard origin/master`,
-  `npm install`, `npm run build`, `pm2 restart AMAYA --update-env`, then curl `/product/all`.
-  (Server uses `npm install`, not `npm ci`, to stay robust against platform-specific
-  optional deps; the clean-room `check` job uses `npm ci`.)
-- pm2 process name: `AMAYA`. Working dir on server: `/home/max/amaya-project/coffee`.
-- `.env.production` lives on the server and is NOT tracked or managed by CI.
+  `docker compose -f docker-compose.prod.yml build && up -d`, then curl `/product/all`.
+- Runs as container `amaya-api` (image `amaya-api:latest`), published on `127.0.0.1:4003`;
+  nginx (`api.amaya.uz`) proxies to it. `restart: unless-stopped`.
+- Working dir on server: `/home/max/amaya-project/coffee`.
+- **Uploads persist** via bind mount `./uploads:/app/uploads` (multer writes there, served
+  at `/uploads`). Never bake uploads into the image; never remove that volume.
+- `.env.production` lives on the server (gitignored), injected via compose `env_file`.
 - Secrets: `OCI_HOST`, `OCI_USER`, `OCI_SSH_KEY`.
+- Frontend (`coffee-react`) stays a static nginx build — not containerized.
+- No longer pm2 (was `pm2 AMAYA` before the 2026-07 Docker migration).
 
 ## Conventions
 - No emojis in code/commits. No `Co-Authored-By` in commits.

@@ -48,9 +48,8 @@ jobs:
             cd /home/max/amaya-project/coffee
             git fetch origin master
             git reset --hard origin/master
-            npm install
-            npm run build
-            pm2 restart AMAYA --update-env
+            docker compose -f docker-compose.prod.yml build
+            docker compose -f docker-compose.prod.yml up -d
 
       - name: Health check
         run: |
